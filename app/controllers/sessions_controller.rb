@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   # skip authentication for methods
-  skip_before_filter :authenticate_user, :only => [:new, :create]
+  skip_before_action :authenticate_user, :only => [:new, :create]
 
   def new
 

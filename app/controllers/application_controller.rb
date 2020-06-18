@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   # authenticate user for all controllers and all actions
   # unless specified otherwise in each controller
-  before_filter :authenticate_user
+  before_action :authenticate_user
 
   # authenticate user function, redirect to login page if not logged in
   def authenticate_user
