@@ -1,34 +1,41 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.5.1'
+ruby '2.6.0'
 
-# SCSS
-gem 'sass-rails', '5.0.4'
-gem 'bootstrap-sass', '3.3.6'
-gem 'sprockets', '~> 3.6.3'
+gem 'rails', '~> 5.2.0'
 
-# Database
-gem 'pg', '0.18.1'
+gem 'pg', '>= 0.18', '< 2.0'
+gem 'puma', '~> 3.12'
 
-# jQuery
-gem 'uglifier', '2.7.1'
-gem 'jquery-rails', '3.0.4'
+gem 'sass-rails', '~> 5.0'
+gem "bootstrap-sass", "~> 3.4.1"
+gem 'uglifier', '>= 1.3.0'
+gem 'jquery-rails'
 
-# Use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '3.1.2'
+gem 'turbolinks', '~> 5'
+gem 'autonumeric-rails'
+gem 'jbuilder', '~> 2.5'
+gem 'bootsnap', '>= 1.1.0', require: false
+
+gem 'rubocop', '~> 0.78.0', require: false
+gem 'rest-client'
+gem 'webmock'
+gem 'haml'
+
+gem "bcrypt", "~> 3.1.13"
 
 group :development, :test do
-  # Debugger
-  gem 'byebug', '3.5.1'
-  gem 'pry-nav', '0.2.4'
-  gem 'pry-rails', '0.3.3'
-  gem 'pry-rescue', '1.4.2'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'rspec-rails', '~> 3.5'
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+  gem 'web-console', '>= 3.3.0'
   gem 'spring'
+end
+
+group :test do
+  gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'selenium-webdriver'
+  gem 'chromedriver-helper'
 end
