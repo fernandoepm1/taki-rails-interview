@@ -20,6 +20,9 @@ gem "bcrypt", "~> 3.1.13"
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.5'
+  gem 'rails-controller-testing', '~> 1.0.1'
+  gem 'factory_bot_rails'
+  gem 'ffaker'
 end
 
 group :development do
@@ -30,6 +33,5 @@ end
 group :test do
   gem 'capybara', '>= 2.15', '< 4.0'
   gem 'shoulda-matchers', '~> 4.0'
-  gem 'factory_bot_rails'
-  gem 'ffaker'
+  gem 'database_cleaner-active_record'
 end
