@@ -1,0 +1,15 @@
+<%= form_with model: @item do |f| %>
+  <div class="form-group">
+    <%= f.label :description, 'Description*' %>
+    <%= f.text_field :description, class: 'form-control' %>
+    <%= error_for(@item, :description) %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :price, 'Price*' %>
+    <%= f.number_field :price, class: 'form-control' %>
+    <%= error_for(@item, :price) %>
+  </div>
+
+  <%= f.submit "Add", class: "btn btn-primary" %>
+<% end %>
