@@ -2,21 +2,29 @@
 
 <h1>Listing items</h1>
 
-<table class="item-list">
-  <tr>
-    <th>Item name</th>
-    <th>Price</th>
-    <th><button name="add">Add</button></th>
-  </tr>
+<th><%= link_to "Add a new Item", new_item_path, class: "btn btn-primary" %></th><br><br>
 
-  <% @items.each do |item| %>
+<% if @items.empty? %>
+  <p>Your Business currently has no Items.</p>
+<% else %>
+  <table class="table table-hover item-list">
     <tr>
-      <td><%= item.name %></td>
-      <td><%= item.price %></td>
-      <td>
-        <button name="edit">Edit</button>
-        <button name="delete">Delete</button>
-      </td>
+      <th>#</th>
+      <th>DESCRIPTION</th>
+      <th>PRICE</th>
+      <th>OPTIONS</th>
     </tr>
-  <% end %>
-</table>
+
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= item.id %></td>
+        <td><%= item.description %></td>
+        <td><%= item.price %></td>
+        <td>
+          <%= link_to "Edit", edit_item_path(item), class: "btn btn-default" %>
+          <%= link_to "Delete", item_path(item), method: :delete, class: "btn btn-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>
