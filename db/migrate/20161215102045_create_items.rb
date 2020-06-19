@@ -1,14 +1,11 @@
-class CreateItems < ActiveRecord::Migration
+class CreateItems < ActiveRecord::Migration[5.2]
   def change
     create_table :items do |t|
-      t.string    :name
-      t.bigint    :price
-      t.integer   :business_id
+      t.references :business
+      t.string     :description
+      t.decimal    :price
+
+      t.timestamps
     end
-
-    add_column :items, :created_at, :timestamptz
-    add_column :items, :updated_at, :timestamptz
-
-    add_index :items, :business_id
   end
 end
