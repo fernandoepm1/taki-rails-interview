@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
-
-  resources :users
+  resources :users, except: %i[index new destroy]
+  resources :businesses
   resources :items
-  resources :business
 
-  get    '/signup',       to: 'users#new'
+  get    '/signup', to: 'users#new'
 
-  get    '/login',        to: 'sessions#new'
-  post   '/login',        to: 'sessions#create'
-  delete '/logout',       to: 'sessions#destroy'
+  get    '/login',  to: 'sessions#new'
+  post   '/login',  to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
 
   root 'home#index'
 end

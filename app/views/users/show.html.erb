@@ -1,0 +1,42 @@
+<% provide(:title, 'Profile info') %>
+<div class="card" style="width: 50%; margin: auto;">
+  <h1 class="text-center">Profile info</h1>
+  <div class="card-body d-flex flex-column justify-content-center">
+    <div class="offset-md-3">
+      <p>
+        <span><strong>Name: </strong></span>
+        <%= "#{@user.first_name} #{@user.last_name}" %>
+      </p>
+    </div>
+
+    <div class="offset-md-3">
+      <p>
+        <span><strong>Email: </strong></span>
+        <%= @user.email %>
+      </p>
+    </div>
+
+    <% if current_business.present? %>
+      <div class="offset-md-3">
+        <p>
+          <span><strong>Business Name: </strong></span>
+          <%= @user.business.name %>
+        </p>
+      </div>
+
+      <div class="offset-md-3">
+        <p>
+          <span><strong>Business Address: </strong></span>
+          <%= @user.business.address %>
+        </p>
+      </div>
+
+      <div class="offset-md-3">
+        <p>
+          <span><strong>Business City: </strong></span>
+          <%= @user.business.city %>
+        </p>
+      </div>
+    <% end %>
+  </div>
+</div>
