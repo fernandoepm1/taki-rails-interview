@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
     if current_business.present?
       @items = current_business.items
     else
-    # If business not yet created, redirect to create a new business
+      # If business not yet created, redirect to create a new business
       redirect_to new_business_path, notice: "Please create a business."
     end
   end
