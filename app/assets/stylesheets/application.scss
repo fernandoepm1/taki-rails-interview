@@ -82,8 +82,10 @@ table.item-list {
   }
 }
 
-#error_explanation {
-	color: red;
+.error_explanation {
+  color: red;
+  display: block;
+  font-size: 85%;
 }
 
 #notice {
