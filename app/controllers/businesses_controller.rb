@@ -1,7 +1,5 @@
 class BusinessesController < ApplicationController
-  before_action :set_business, only: %i[show edit update]
-
-  def show; end
+  before_action :set_business, only: %i[edit update]
 
   def new
     @business = Business.new
@@ -28,9 +26,6 @@ class BusinessesController < ApplicationController
       flash.now[:alert] = 'Something went wrong, check the information given.'
       render :edit
     end
-  end
-
-  def destroy
   end
 
   private

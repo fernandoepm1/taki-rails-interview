@@ -1,5 +1,5 @@
   <div class="col-md-6 col-md-offset-3" id="signup-form">
-    <%= form_for(@user) do |f| %>
+    <%= form_with model: @user do |f| %>
       <%= f.label :first_name %>
       <%= f.text_field :first_name, class: "form-control" %>
       <%= error_for(@user, :first_name) %>
@@ -20,10 +20,10 @@
       <%= f.password_field :password_confirmation, class: "form-control" %>
       <%= error_for(@user, :password_confirmation) %>
 
-      <% if @user.persisted? %>
-        <%= f.submit "Edit information", class: "btn btn-primary" %>
-      <% else %>
+      <% if @user.new_record? %>
         <%= f.submit "Create my account", class: "btn btn-primary" %>
+      <% else %>
+        <%= f.submit "Edit information", class: "btn btn-primary" %>
       <% end %>
     <% end %>
   </div>
